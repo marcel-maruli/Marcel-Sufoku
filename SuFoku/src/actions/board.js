@@ -45,8 +45,6 @@ export const getBoard = difficulty => {
   }
 }
 export const solve = (data) => {
-  console.log(data, 'SOLEEEE');
-
   return dispatch => {
     api
       .post(`/solve`, encodeParams(data),
@@ -54,7 +52,6 @@ export const solve = (data) => {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         })
       .then(({ data }) => {
-        console.log(data, 'APADPAPASPASPAO');
         const solvedBoardProgress = data.solution
         const solvedBoard = solvedBoardProgress.map(row => {
           return row.map(col => {
@@ -62,7 +59,6 @@ export const solve = (data) => {
           })
         })
         dispatch(fetchBoardCompleted(solvedBoard, data.solution, data.difficulty))
-        console.log(data.status, 'HEHOOOOOOOOO!!');
         dispatch(validate(data.status))
 
       })
@@ -87,8 +83,6 @@ export const validate = (validation) => ({
 })
 
 export const submit = (data) => {
-  console.log(data, "```````````````````````````````````````````````````````````````````````");
-
   return dispatch => {
     api
       .post('/validate', encodeParams(data),
@@ -96,7 +90,6 @@ export const submit = (data) => {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         })
       .then(({ data }) => {
-        console.log("PUSHHHHHHHHHHHHHHHHHHHHHhh");
         const validation = data
         dispatch(validate(validation.status))
       })

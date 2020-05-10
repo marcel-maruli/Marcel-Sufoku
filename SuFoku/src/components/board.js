@@ -14,24 +14,17 @@ export default function Board({ navigation }) {
   const board = useSelector((state) => state.boardReducer.board)
   // setBoard(boardBaseOnDiff)
   const value = useSelector((state) => state.boardReducer.value)
-  console.log(value, 'CUMIIIIIIIIIIIIIIIIIiii');
-
   const onPressValdate = (value) => {
-    console.log(value, 'zzzzzzzzzz');
     dispatch(submit(value))
   }
   const onPressSolve = value => {
-    console.log(value, 'yyyyyyyyyyyyyyyyyyyyyyyyyy');
-
     dispatch(solve(value))
   }
 
   const validation = useSelector((state) => state.boardReducer.status)
-  console.log(validation, 'masukgaksihhhhh?');
   const [validated, setValidation] = useState('')
 
   const difficulties = useSelector(state => state.boardReducer.difficulty)
-  console.log(difficulties, 'COBA COBA COBA');
 
   const onPressFinish = () => {
     navigation.navigate('Congratulation')
@@ -64,7 +57,6 @@ export default function Board({ navigation }) {
         } else {
           const boardToChange = [...board];
           const valueToChange = [...value];
-          console.log(board, 'APAAN SIH INI');
           valueToChange[coordinate[0]][coordinate[1]] = Number(text)
           boardToChange[coordinate[0]][coordinate[1]].val = text;
           dispatch(changeBoard(boardToChange, valueToChange));

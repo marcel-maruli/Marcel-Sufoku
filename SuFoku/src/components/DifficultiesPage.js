@@ -13,15 +13,6 @@ export default function Board({ navigation }) {
   const name = useSelector(state => state.gameReducer.name)
   const board = useSelector((state) => state.boardReducer.board)
   // setBoard(boardBaseOnDiff)
-  const value = useSelector((state) => state.boardReducer.value)
-  console.log(value, 'CUMIIIIIIIIIIIIIIIIIiii');
-
-  const validation = useSelector((state) => state.boardReducer.status)
-  console.log(validation, 'masukgaksihhhhh?');
-
-  const difficulties = useSelector(state => state.boardReducer.difficulty)
-  console.log(difficulties, 'COBA COBA COBA');
-
   const onPressDifficulties = (difficult) => {
     dispatch(getBoard(difficult))
     navigation.navigate('Main')
